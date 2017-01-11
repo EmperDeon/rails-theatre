@@ -1,0 +1,2 @@
+class TPerformance < ApplicationRecord
+end

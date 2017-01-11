@@ -1,0 +1,2 @@
+class THall < ApplicationRecord
+end

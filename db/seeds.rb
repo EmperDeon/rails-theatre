@@ -1,7 +1,35 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
+# Load and execute seeder code
 #
-# Examples:
+#  name:: Filename to load
+def load_seed (name)
+    require File.join(Rails.root, 'db', 'seeds', name)
+end
+
+# Get id for heroku (cleardb)
 #
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+#  i:: id
+def id (i)
+    (i-1)*10 + 4
+end
+
+# Execute custom SQL code
+#
+#  sql:: SQL string
+def exec_sql (sql)
+    ActiveRecord::Base.connection.execute sql
+end
+
+
+load_seed 'init_seeder'
+load_seed 'theatres_seeder'
+load_seed 'u_perms_seeder'
+load_seed 'u_apis_seeder'
+load_seed 'u_webs_seeder'
+load_seed 'actors_seeder'
+load_seed 'p_types_seeder'
+load_seed 'perf_seeder'
+load_seed 't_hall_seeder'
+load_seed 't_perf_seeder'
+load_seed 'poster_seeder'
+
+
