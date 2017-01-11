@@ -1,0 +1,71 @@
+/* Navigation Bar */
+.navbar {
+  //background: $brand-primary;
+  font: normal 700 12pt Roboto;
+
+  a {
+    text-decoration: none;
+  }
+
+  .nav-caret {
+    display: inline-block;
+    background-image: url('/img/marker.png');
+    width: 10px;
+    height: 10px;
+    margin-left: 2px;
+    vertical-align: middle;
+  }
+
+  .navbar-brand {
+    padding-left: 30px;
+  }
+
+  .navbar-right {
+    padding-right: 25px;
+    font-size: 11pt;
+  }
+
+  /* Animation */
+  .dropdown .dropdown-menu {
+    a {
+      font-size: 10pt;
+    }
+
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -ms-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+
+    max-height: 0;
+    display: block;
+    overflow: hidden;
+    opacity: 0;
+    z-index: -1;
+  }
+
+  .dropdown.open .dropdown-menu {
+    max-height: 200px;
+    opacity: 1;
+    z-index: 1;
+  }
+}
+
+/* Login modal */
+#loginModal {
+  .modal-header, h4, .close {
+    padding: 15px 25px;
+    background-color: #5cb85c;
+    color: white !important;
+    text-align: center;
+    font-size: 30px;
+  }
+
+  .modal-body {
+    padding: 15px 25px;
+  }
+
+  .modal-footer {
+    background-color: #f9f9f9;
+  }
+}

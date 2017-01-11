@@ -98,3 +98,12 @@ Run raw SQL `ActiveRecord::Base.connection.execute('<SQL>')`
 
 Dump seeds - install gem `123` and do `rake db:seed:dump`
 **Does not dump tables, dumps models (so if you have table only, it wont dump it)**
+
+
+## Views, Templates, Layouts and Partials
+[Layouts and Rendering](http://guides.rubyonrails.org/layouts_and_rendering.html)
+
+#### How to create partial
+1. Create file `_<Name>.html.erb` in `app/views/partials`
+2. Render partial in needed place `<%= render 'partials/<Name>' %>`
+
