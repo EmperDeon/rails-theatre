@@ -1,0 +1,46 @@
+h1
+	| Главная страница
+h3
+	| Ближайшие спектакли:
+.posters.container
+	.row
+		- for poster in @posters
+			.poster-small.col-sm-6.col-md-3.col-lg-3
+				.date
+					= l(poster.date, format: :full)
+				a[href="/performances/#{poster.id}"]
+					= 'poster.t_perf.perf.name'
+				br
+				a[href="/theatres/#{'poster.t_perf.theatre_id'}" style="font-size: 10pt"]
+					= 'poster.t_perf.theatre.name'
+				br
+				a[href="#" style="font-size: 10pt"]
+				= 'poster.hall.name'
+
+				/p
+				/h3
+				/	| Последние новости:
+				/	- for article in @articles
+				/		hr
+				/			.article-small
+				/				div[style="float: left"]
+				/					a[href="/articles/#{article.id}"]
+				/						= article.name
+				/					br
+				/					a[href="/theatres/#{article.theatre_id }" style="font-size: 10pt"]
+				/						= article.theatre.name }}
+				/					br
+				/
+				/				div[style="float: right"]
+				/					= l(article->updated_at, format: :date_only)}}
+				/
+				/				br[style="clear: both;"]
+				/				- if article->img == 'none.png'
+				/					br
+				/					a[href="/articles/#{article.id }"]
+				/
+				/				= article.desc_s
+				/				a.btn.btn-default[href="/articles/#{article.id }"]
+				/					| Подробнее
+				/			br[style="clear: both;"]
+				/		br

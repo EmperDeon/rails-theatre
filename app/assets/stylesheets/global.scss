@@ -1,0 +1,50 @@
+/* Global */
+a {
+  font: normal 700 12pt Roboto;
+  text-decoration: underline;
+}
+
+p {
+  font: normal normal 10pt Verdana;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0;
+}
+
+h1, h2 {
+  margin-bottom: 0;
+}
+
+.bold-list {
+  list-style-image: url('/img/marker-r.png');
+
+  li {
+  }
+}
+
+.dropdown-menu {
+  li {
+    a {
+      font-size: 10pt;
+    }
+  }
+}
+
+/* Main container */
+body > .container {
+  margin-top: 60px;
+
+  h1 {
+    margin-top: 0;
+  }
+
+  img {
+    float: left;
+    width: 100%;
+    min-width: 10px;
+    //max-width: 420px;
+    height: auto;
+    padding: 0 20px 20px 0;
+  }
+}

@@ -60,3 +60,6 @@ gem 'thor', '0.19.1'
 
 # Bootstrap SCSS
 gem 'bootstrap-sass', '~> 3.3.6'
+
+gem 'slim'
+gem 'slim-rails'
