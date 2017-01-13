@@ -8,14 +8,14 @@ h3
 			.poster-small.col-sm-6.col-md-3.col-lg-3
 				.date
 					= l(poster.date, format: :full)
-				a[href="/performances/#{poster.id}"]
-					= 'poster.t_perf.perf.name'
+				a[href="/performances/#{poster.t_perf_id}"]
+					= poster.t_perf.perf.name
 				br
-				a[href="/theatres/#{'poster.t_perf.theatre_id'}" style="font-size: 10pt"]
-					= 'poster.t_perf.theatre.name'
+				a[href="/theatres/#{poster.t_perf.theatre_id}" style="font-size: 10pt"]
+					= poster.t_perf.theatre.name
 				br
 				a[href="#" style="font-size: 10pt"]
-				= 'poster.hall.name'
+				= poster.t_hall.name
 
 				/p
 				/h3

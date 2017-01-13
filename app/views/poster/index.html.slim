@@ -1,0 +1,26 @@
+h2
+	| Афиша
+/ Insert types sorting
+
+table.posters-table
+	- if @posters.empty?
+		tr
+			td
+				h3
+					| Нет представлений по данным критериям
+	- else
+		- for poster in @posters
+			tr
+				td.date
+					= l(poster.date, format: :day_of_week)
+				td.name
+					a[href="/posters/#{ poster.t_perf_id }"]
+						= poster.t_perf.perf.name
+					br
+					a[href="/theatres/#{ poster.t_perf.theatre_id }" style="font-size: 10pt"]
+						= poster.t_perf.theatre.name
+					a<[href="#" style="font-size: 9pt"]
+						= poster.t_hall.name
+				td.time
+					= l(poster.date, format: :time_only)
+

@@ -1,0 +1,17 @@
+h1
+	| Театры, с которыми мы работаем:
+- for theatre in @theatres
+	p.theatre
+		a[href="/theatres/#{ theatre.id }"]
+			= theatre.name
+		br
+		br
+		b
+			| Адрес:
+			= theatre.address
+		br
+		b
+			| Телефон:
+			= theatre.tel_num
+		br[style="clear: both;"]
+	br

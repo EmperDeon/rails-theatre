@@ -1,5 +1,12 @@
 Rails.application.routes.draw do
-  root 'index#index'
+  get 'posters', to: 'poster#index'
+  get 'posters/:id', to: 't_performance#show'
 
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  get 'performances', to: 't_performance#index'
+  get 'performances/:id', to: 't_performance#show'
+
+  get 'theatres', to: 'theatre#index'
+  get 'theatres/:id', to: 'theatre#show'
+
+  root 'index#index'
 end

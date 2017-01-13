@@ -1,0 +1,19 @@
+h2
+	| Репертуар
+
+- if @perfs.empty?
+	tr
+		td
+			h3
+				| Нет представлений по данным критериям
+else
+	- for perf in @perfs
+		.perf-small.col-sm-4
+			a[href="/performances/#{ perf.id }"]
+				= perf.perf.name
+			br
+			a[href="/theatres/#{ perf.theatre_id }" style="font-size: 10pt"]
+				= perf.theatre.name
+			p
+				== perf.desc_s
+			br[style="clear: both"]

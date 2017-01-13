@@ -1,0 +1,16 @@
+h1
+	= @theatre.name
+.theatre
+	p
+		== @theatre.desc
+table.table
+	tr
+		td
+			|  Адрес:
+		td
+			= @theatre.address
+	tr
+		td
+			|  Телефон:
+		td
+			= @theatre.tel_num

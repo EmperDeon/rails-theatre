@@ -1,0 +1,36 @@
+h2 Выступление
+/ Types
+
+h3[style="margin:10px"]
+	= @perf.perf.name
+.perf
+	.row
+		.col-md-8
+			h4 Ближайшие спектакли
+			table.table[style="font-size: 9.5pt"]
+				- for poster in (@perf.posters)
+					tr
+						td
+							= l(poster.date, format: :full)
+						td
+							= poster.t_hall.name
+
+			b
+				| Автор:
+				= @perf.perf.author
+			br
+			br
+			p
+				== @perf.desc
+
+		.col-md-4
+			h4
+				| Актеры:
+				/      /table.table[style="font-size: 10pt"]
+				/      /  tbody
+				/      /    - for actor in @perf.actors
+				/      /    tr
+				/      /      td
+				/      /        a[href="/actors/{{ $actor->id }}"]
+				/      /          | {{ $actor->name }}
+				/

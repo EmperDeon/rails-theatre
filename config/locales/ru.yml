@@ -100,3 +100,6 @@ ru-RU:
     formats:
       full: '%d %B %Y, %A %H:%M'
       date_only: '%d %B %Y'
+      day_of_week: '%d %B %Y, %A'
+      time_only: '%H:%M'
+

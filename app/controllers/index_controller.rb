@@ -1,6 +1,6 @@
 class IndexController < ApplicationController
     def index
-        @posters = Poster::limit(4)
+        @posters = Poster::closest(4)
 
     end
 end

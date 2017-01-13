@@ -1,0 +1,40 @@
+@import "bootstrap/variables";
+@import "bootstrap/mixins";
+@import "bootstrap/tables";
+
+.posters-table {
+  @extend .table;
+
+  .date {
+    text-align: left;
+
+    width: 150px;
+  }
+
+  .name {
+
+  }
+
+  .time {
+    text-align: right;
+
+  }
+}
+
+.posters.container {
+}
+
+.poster-small {
+  margin-bottom: 50px;
+
+  a {
+    font-size: 12pt;
+
+  }
+
+  div.date {
+    font-size: 10pt;
+    margin-bottom: 5px
+  }
+
+}

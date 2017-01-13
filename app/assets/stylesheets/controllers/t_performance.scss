@@ -1,0 +1,34 @@
+.perf {
+  padding: 10px 10px 60px 10px;
+
+  img {
+    float: none;
+    max-width: 580px;
+  }
+}
+
+.perf-small {
+  @extend .perf;
+
+  img {
+    max-width: 320px;
+  }
+}
+
+.perf-types {
+  min-height: 1px; // Dirty fix - for 'More' panel
+
+  div.btn-group {
+    margin: 10px 0;
+  }
+
+  a.btn {
+    text-decoration: none;
+  }
+
+  a.btn.selected {
+    color: #fff;
+    background-color: #6b9dbb;
+    border-color: #538db0
+  }
+}
