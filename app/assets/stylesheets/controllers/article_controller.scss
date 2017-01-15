@@ -1,0 +1,24 @@
+.article {
+  a {
+    font-size: 14pt;
+    text-decoration: underline;
+  }
+
+  img {
+    max-width: 420px;
+  }
+}
+
+.article-small {
+  @extend .article;
+
+  img {
+    max-width: 320px;
+  }
+
+  a.btn.btn-default {
+    font-size: 12pt;
+    float: right;
+    text-decoration: none;
+  }
+}

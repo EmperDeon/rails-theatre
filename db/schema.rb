@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170109142823) do
+ActiveRecord::Schema.define(version: 20170115164604) do
 
     create_table "actors", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
         t.integer "theatre_id"
@@ -25,6 +25,17 @@ ActiveRecord::Schema.define(version: 20170109142823) do
     create_table "actors_t_performances", id: false, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
         t.integer "t_performance_id", null: false
         t.integer "actor_id", null: false
+    end
+
+    create_table "articles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+        t.integer "theatre_id"
+        t.string "name"
+        t.string "img"
+        t.text "desc", limit: 65535
+        t.text "desc_s", limit: 65535
+        t.datetime "created_at", null: false
+        t.datetime "updated_at", null: false
+        t.index ["theatre_id"], name: "fk_rails_57adbfb39c", using: :btree
     end
 
     create_table "p_types", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -114,6 +125,7 @@ ActiveRecord::Schema.define(version: 20170109142823) do
     end
 
     add_foreign_key "actors", "theatres"
+    add_foreign_key "articles", "theatres"
     add_foreign_key "performances", "p_types", column: "type_id"
     add_foreign_key "posters", "t_halls"
     add_foreign_key "posters", "t_performances", column: "t_perf_id"

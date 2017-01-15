@@ -2,7 +2,7 @@
 #
 #  name:: Filename to load
 def load_seed (name)
-    require File.join(Rails.root, 'db', 'seeds', name)
+    require File.join(Rails.root, 'db', 'seeds', name + '_seeder')
 end
 
 # Get id for heroku (cleardb)
@@ -20,16 +20,17 @@ def exec_sql (sql)
 end
 
 
-load_seed 'init_seeder'
-load_seed 'theatres_seeder'
-load_seed 'u_perms_seeder'
-load_seed 'u_apis_seeder'
-load_seed 'u_webs_seeder'
-load_seed 'actors_seeder'
-load_seed 'p_types_seeder'
-load_seed 'perf_seeder'
-load_seed 't_hall_seeder'
-load_seed 't_perf_seeder'
-load_seed 'poster_seeder'
+load_seed 'init'
+load_seed 'theatres'
+load_seed 'u_perms'
+load_seed 'u_apis'
+load_seed 'u_webs'
+load_seed 'actors'
+load_seed 'p_types'
+load_seed 'perf'
+load_seed 't_hall'
+load_seed 't_perf'
+load_seed 'poster'
+load_seed 'articles'
 
 

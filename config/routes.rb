@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'articles/index', to: 'article#index'
+  get 'articles/:id', to: 'article#show'
+
   get 'posters', to: 'poster#index'
   get 'posters/:id', to: 't_performance#show'
 
