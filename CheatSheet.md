@@ -107,3 +107,4 @@ Dump seeds - install gem `123` and do `rake db:seed:dump`
 1. Create file `_<Name>.html.erb` in `app/views/partials`
 2. Render partial in needed place `<%= render 'partials/<Name>' %>`
 
+ 

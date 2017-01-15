@@ -1,0 +1,2 @@
+class UtilsController < ApplicationController
+end

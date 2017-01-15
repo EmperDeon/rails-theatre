@@ -2,6 +2,9 @@ h2
 	| Афиша
 / Insert types sorting
 
+.perf-types
+	== get_settings
+
 table.posters-table
 	- if @posters.empty?
 		tr
@@ -19,8 +22,8 @@ table.posters-table
 					br
 					a[href="/theatres/#{ poster.t_perf.theatre_id }" style="font-size: 10pt"]
 						= poster.t_perf.theatre.name
-					a<[href="#" style="font-size: 9pt"]
-						= poster.t_hall.name
+					a[href="#" style="font-size: 9pt"]
+						=< poster.t_hall.name
 				td.time
 					= l(poster.date, format: :time_only)
 
