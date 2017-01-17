@@ -49,6 +49,4 @@ test:
 #
 production:
   <<: *default
-  database: Theatre_production
-  username: Theatre
-  password: <%= ENV['THEATRE_DATABASE_PASSWORD'] %>
+  url: <%= ENV['DATABASE_URL'] %>

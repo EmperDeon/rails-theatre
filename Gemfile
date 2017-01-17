@@ -61,5 +61,12 @@ gem 'thor', '0.19.1'
 # Bootstrap SCSS
 gem 'bootstrap-sass', '~> 3.3.6'
 
+# For Slim templates
 gem 'slim'
 gem 'slim-rails'
+
+# Beautify IRB console
+gem 'hirb'
+
+# For heroku
+ruby '2.2.6'
