@@ -70,3 +70,8 @@ gem 'hirb'
 
 # For heroku
 ruby '2.2.6'
+
+group :production do
+    # Logentries for logs
+    gem 'le'
+end

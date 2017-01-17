@@ -1,0 +1,1 @@
+web: vendor/bin/heroku-ruby-apache2 public/
