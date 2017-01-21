@@ -3,17 +3,20 @@ module TPerformanceHelper
     # Get HTML for 'settings' menu for sorting
     #
     def get_settings
-        path = request.env['PATH_INFO']
+        path = request.env['PATH_INFO'] # Get current request path
 
         if path.include?('performances') || path.include?('posters')
-            a = get_setting_vals(path)
+            a = get_setting_vals(path) # Get settings values from path
 
+            # Recreate path, for links
             /(\/\w+).*/ =~ path
             cl = "<a href='#{$1}' class='btn btn-primary'>" + t(:g_clear) + '</a>'
             nm = $1 + get_new_path(a)
             r = ''
 
+            # Create different menus for different paths
             if path == '/posters'
+
                 # Add 'Type' and 'Month' menus
                 r += get_menus(nm, a, %w(type month))
 
@@ -51,19 +54,21 @@ module TPerformanceHelper
     end
 
 
-    #
     # Recreate path for sorting links
     #  sett::settings array
     def get_new_path (sett)
         nm = '?'
 
-        sett.each { |k, v|
+        sett.each { |k, v| # Append params
             nm += v > 0 ? "by_#{k}=#{v}&" : ''
         }
 
         del_tail(nm)
     end
 
+
+    # Delete trailing ? and & symbols
+    #  url:: string
     def del_tail(url)
         /(.*\w+)(\?|&)*/ =~ url
         if $1
@@ -73,8 +78,8 @@ module TPerformanceHelper
         end
     end
 
-    #
-    # Get HTML for menus
+
+    # Get HTML for each menu in arr
     #  url:: link prefix
     #  sett:: settings array
     #  arr:: sett keys array
@@ -87,8 +92,8 @@ module TPerformanceHelper
         r
     end
 
-    #
-    # Get HTML for single menu
+
+    # Get HTML for menu
     #  url:: link prefix
     #  sett:: settings array
     #  type:: sett key
@@ -96,38 +101,41 @@ module TPerformanceHelper
         t_name = get_def_name(sett, type)
         collection = get_collection(type)
 
-        # Replace old id with new
+        # Delete old id from str
         url = del_tail(url.gsub(/by_#{type}=\d+&*/, ''))
 
+        # Create url for link without current menu setting
         /(\/\w+)(\?|&)*/ =~ url
         b_url = "#{$1}?by_#{type}=#{sett[type]}" if sett[type] != 0
 
-
-        # Return menu
+        # Menu 'Header'
         r = '<div class="btn-group dropdown" style="margin-right:10px;">'
         r += "<a href=\"#{b_url}\" class=\"btn btn-primary\"  data-hover=\"dropdown\" >" + t_name + '</a>'
         r += '<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">'
         r += '<span class="caret"></span></button>'
         r += '<ul class="dropdown-menu" role="menu">'
 
-
+        # First link for 'clear current' action
         r += '<li><a href="' + del_tail(url) + '" >' + t(:m_none) + '</a>'
 
+        # Append ? or & symbols to url
         url += '?' if url == '/performances' || url == '/posters'
         url += '&' unless url.end_with?('?', '&')
 
-
+        # Append all items from list
         collection.each { |k, v|
             r += "<li><a href='#{url}by_#{type}=#{k.to_s}'>#{v}</a></li>"
         }
 
+        # Close menu
         r + '</ul></div>'
     end
 
-    #
+
     # Get name for setting button
-    # if id=0, then default
-    # if id!=0, then find in list
+    #  if id == 0, then default
+    #  if id != 0, then find in list
+    #
     #  sett:: settings array
     #  type:: sett key
     def get_def_name(sett, type)
@@ -139,15 +147,15 @@ module TPerformanceHelper
         end
     end
 
-    #
+
     # Get collection
     #  type:: sett key
     def get_collection(type)
         UtilsHelper.get_hash(get_list_name(type))
     end
 
-    #
-    # Get name for UtilsHelper .get_list and .find_in_list
+
+    # Get name for UtilsHelper .get_hash and .find_in_list
     #  type:: sett key
     def get_list_name(type)
         case (type)
@@ -164,7 +172,7 @@ module TPerformanceHelper
         type
     end
 
-    #
+
     # Get values for current page
     #  path:: request path
     def get_setting_vals(path)
@@ -187,10 +195,10 @@ module TPerformanceHelper
         a
     end
 
-    #
+
     # Костыль
-    # Because of ruby >1.9 when creating hash with quick syntax
-    #  a = {k: v} converting k to symbol.
+    # Because of Ruby >1.9, when creating hash with quick syntax
+    #  a = {k: v}, Ruby converting k to symbol.
     #  But string needed as key for lists and etc.
     #
     def get_def_sett_vals
@@ -206,7 +214,7 @@ module TPerformanceHelper
         a
     end
 
-    #
+
     # Has params specified parameters ?
     #  a:: parameters
     def has_one_par? (a)

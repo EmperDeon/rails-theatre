@@ -24,7 +24,7 @@ nav.navbar.navbar-default.navbar-fixed-top
 					ul.dropdown-menu [role="menu"]
 						- for type in @p_types
 							li
-								a[href="/posters?by_type=#{type.id}"] = type.name
+								a[href="/performances?by_type=#{type.id}"] = type.name
 				li.dropdown
 					a.dropdown-toggle [href="/theatres/" data-hover="dropdown"]
 						= t(:g_theatres)
