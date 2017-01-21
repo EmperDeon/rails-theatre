@@ -10,7 +10,8 @@ nav.navbar.navbar-default.navbar-fixed-top
 		#navbar-collapse-1.navbar-collapse.collapse
 			ul.nav.navbar-nav
 				li.dropdown
-					a.dropdown-toggle [href="/posters/" data-hover="dropdown"]
+					/a.dropdown-toggle [href="#{posters_path}" data-hover="dropdown"]
+					= link_to posters_path, class: 'dropdown-toggle', 'data-hover' => 'dropdown'
 						= t(:g_posters)
 						b.nav-caret
 					ul.dropdown-menu[role="menu"]
@@ -18,7 +19,7 @@ nav.navbar.navbar-default.navbar-fixed-top
 							li
 								a[href="/posters?by_type=#{type.id}"] = type.name
 				li.dropdown
-					a.dropdown-toggle [href="/performances/" data-hover="dropdown"]
+					= link_to performances_path, class: 'dropdown-toggle', 'data-hover' => 'dropdown'
 						= t(:g_perfs)
 						b.nav-caret
 					ul.dropdown-menu [role="menu"]
@@ -26,7 +27,7 @@ nav.navbar.navbar-default.navbar-fixed-top
 							li
 								a[href="/performances?by_type=#{type.id}"] = type.name
 				li.dropdown
-					a.dropdown-toggle [href="/theatres/" data-hover="dropdown"]
+					= link_to theatres_path, class: 'dropdown-toggle', 'data-hover' => 'dropdown'
 						= t(:g_theatres)
 						b.nav-caret
 					ul.dropdown-menu[role="menu"]
