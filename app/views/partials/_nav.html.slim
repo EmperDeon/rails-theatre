@@ -33,4 +33,4 @@ nav.navbar.navbar-default.navbar-fixed-top
 					ul.dropdown-menu[role="menu"]
 						- for theatre in @theatres
 							li
-								a[href="/theatres/#{theatre.id}"] = theatre.name
+								a[href="#{theatre_path(theatre)}"] = theatre.name

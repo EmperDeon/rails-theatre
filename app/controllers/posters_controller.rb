@@ -1,4 +1,4 @@
-class PosterController < ApplicationController
+class PostersController < ApplicationController
     def index
         @posters = Poster.by_month(params[:by_month])
                        .by_day(params[:by_day])
@@ -7,6 +7,6 @@ class PosterController < ApplicationController
                        .by_name(params[:by_name])
                        .by_theatre(params[:by_theatre])
                        .order(date: :asc)
-                       .includes(:t_perf, :t_hall)
+                       .includes(:t_perf)
     end
 end

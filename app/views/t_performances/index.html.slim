@@ -9,7 +9,7 @@ h2
 		td
 			h3
 				| Нет представлений по данным критериям
-else
+- else
 	- for perf in @perfs
 		.perf-small.col-sm-4
 			a[href="/performances/#{ perf.id }"]

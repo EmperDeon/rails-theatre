@@ -1,4 +1,4 @@
-class TPerformanceController < ApplicationController
+class TPerformancesController < ApplicationController
     def index
         @perfs = TPerformance.by_type(params[:by_type])
                      .by_name(params[:by_name])

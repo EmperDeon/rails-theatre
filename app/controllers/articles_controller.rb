@@ -1,5 +1,6 @@
-class ArticleController < ApplicationController
+class ArticlesController < ApplicationController
     def index
+
     end
 
     def show

@@ -70,9 +70,15 @@ module UtilsHelper
     def self.get_special_list(type)
         a = []
 
+        q = if Rails.env.production?
+                "DATE_FORMAT(date, '%H:%i')"
+            else
+                "strftime('%H:%M', date)"
+            end
+
         if type == 'time'
             a = ActiveRecord::Base.connection.execute(
-                'SELECT DISTINCT DATE_FORMAT(date, \'%H:%i\') AS \'time\' FROM posters'
+                "SELECT DISTINCT #{q} AS 'time' FROM posters"
             ).to_a
 
             a.map! { |v| v[0] }

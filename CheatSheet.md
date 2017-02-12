@@ -1,4 +1,4 @@
-#Start
+# Start
 Create new project
 ```rails new <ProjectName>```
 
@@ -107,4 +107,11 @@ Dump seeds - install gem `123` and do `rake db:seed:dump`
 1. Create file `_<Name>.html.erb` in `app/views/partials`
 2. Render partial in needed place `<%= render 'partials/<Name>' %>`
 
- 
+# Ruby
+## Array
+Methods:
+* `a.collect {|v| <expr>}` - iterates and creates new array of results
+
+## Hash
+Methods:
+* `a.`

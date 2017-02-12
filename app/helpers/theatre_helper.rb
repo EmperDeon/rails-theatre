@@ -17,6 +17,7 @@ module TheatreHelper
         renderer = Redcarpet::Render::HTML.new(options)
         markdown = Redcarpet::Markdown.new (Redcarpet::Render::HTML.new)
 
-        markdown.render(text).html_safe
+        html = markdown.render(text) #.html_safe
+        # html.gsub(/<.*>/, '_')
     end
 end
