@@ -18,6 +18,11 @@ h3[style="margin:10px"]
 						td
 							= poster.t_perf.t_hall.name
 
+			- if @perf.img != 'none.png' # TODO: This can be much more pretty
+				img[src="#{ api_server_path }img/#{@perf.img}-p.png" alt="Изображение спектакля"]
+			- else
+				img[src="#{ api_server_path }none.png" alt="Нет изображения спектакля"]
+
 			b
 				| Автор:
 				= @perf.perf.author
