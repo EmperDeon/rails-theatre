@@ -2,7 +2,9 @@ h1
 	= @theatre.name
 .theatre
 	p
+		img[src="#{ get_img_path(@theatre.img) }" alt="Изображение спектакля"]
 		== markdown(@theatre.desc)
+
 table.table
 	tr
 		td

@@ -13,10 +13,7 @@ h2
 	- for perf in @perfs
 		.perf-small.col-sm-4
 			a[href="/performances/#{ perf.id }"]
-				- if perf.img != 'none.png' # TODO: This can be much more pretty
-					img[src="#{ api_server_path }img/#{perf.img}-p.png" alt="Изображение спектакля"]
-				- else
-					img[src="#{ api_server_path }none.png" alt="Нет изображения спектакля"]
+				img[src="#{ get_img_path(perf.img, true) }" alt="Изображение спектакля"]
 				= perf.perf.name
 
 			br

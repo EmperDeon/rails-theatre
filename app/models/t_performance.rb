@@ -7,13 +7,12 @@ class TPerformance < ApplicationRecord
     belongs_to :t_hall
 
     has_many :posters, foreign_key: 't_perf_id'
+    has_and_belongs_to_many :actors, through: :actors_t_performances
 
 
     #
     # Scopes
     #
-    scope :by_theatre, -> (id) { where(:theatre_id => id) }
-
     scope :by_type, -> (id) { joins(:perf).where(performances: {p_type_id: id}) if id }
     scope :by_name, -> (id) { where(perf_id: id) if id }
     scope :by_theatre, -> (id) { where(theatre_id: id) if id }

@@ -6,6 +6,7 @@ h3
 	.row
 		- for poster in @posters
 			.poster-small.col-sm-6.col-md-3.col-lg-3
+				img[src="#{ get_img_path(poster.t_perf.img) }" alt="Изображение спектакля"]
 				.date
 					= l(poster.date, format: :full)
 				a[href="/performances/#{ poster.t_perf_id }"]
@@ -17,12 +18,11 @@ h3
 				div[style="font-size: 10pt"]
 				= poster.t_perf.t_hall.name
 
-p
 h3
 	| Последние новости:
 - for article in @articles
-	hr
 	.article-small
+		hr
 		div[style="float: left"]
 			a[href="/articles/#{ article.id}"]
 				= article.name
@@ -35,12 +35,12 @@ h3
 			= l(article.updated_at, format: :date_only)
 
 		br[style="clear: both;"]
-		- if article.img == 'none.png'
-			br
-			a[href="/articles/#{ article.id }"]
+		.content
+			- if article.img != 'no_img'
+				img[src="#{ get_img_path(article.img) }" alt="Изображение спектакля"]
 
-		== article.desc_s
-		a.btn.btn-default[href="/articles/#{ article.id }"]
-			| Подробнее
-	br[style="clear: both;"]
+			== article.desc_s
+			a.btn.btn-default[href="/articles/#{ article.id }"]
+				| Подробнее
+		br[style="clear: both;"]
 	br

@@ -12,8 +12,12 @@
 .article-small {
   @extend .article;
 
-  img {
-    max-width: 320px;
+  .content {
+    padding-top: 10px;
+
+    img {
+      max-width: 320px;
+    }
   }
 
   a.btn.btn-default {

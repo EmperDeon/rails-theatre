@@ -1,8 +1,10 @@
 h1
 	| Театры, с которыми мы работаем:
 - for theatre in @theatres
+	br
 	p.theatre
 		a[href="/theatres/#{ theatre.id }"]
+			img[src="#{ get_img_path(theatre.img) }" alt="Изображение спектакля"]
 			= theatre.name
 		br
 		br
@@ -14,4 +16,3 @@ h1
 			| Телефон:
 			= theatre.tel_num
 		br[style="clear: both;"]
-	br
