@@ -4,6 +4,6 @@ module ApplicationHelper
     end
 
     def get_img_path (name, p=false)
-        "#{ api_server_path }img/#{ name }#{ p ? '-p' : '' }.png"
+        "#{ api_server_path }#{ name }#{ p ? '-p' : '' }.png"
     end
 end
