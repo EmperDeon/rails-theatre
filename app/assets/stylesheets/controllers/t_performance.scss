@@ -5,6 +5,14 @@
     float: none;
     max-width: 580px;
   }
+
+  table {
+    td {
+      span {
+        vertical-align: middle;
+      }
+    }
+  }
 }
 
 .perf-small {

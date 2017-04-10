@@ -7,8 +7,8 @@ require 'rails/all'
 Bundler.require(*Rails.groups)
 
 module Theatres
-    class Application < Rails::Application
-        config.i18n.default_locale = :'ru-RU'
+	class Application < Rails::Application
+		config.i18n.default_locale = :'ru-RU'
 
-    end
+	end
 end

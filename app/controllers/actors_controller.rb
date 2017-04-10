@@ -1,9 +1,9 @@
 class ActorsController < ApplicationController
-    def index
-        @actors = Actor.all
-    end
+	def index
+		@actors = Actor.all
+	end
 
-    def show
-        @actor = Actor.find(params[:id])
-    end
+	def show
+		@actor = Actor.find(params[:id])
+	end
 end

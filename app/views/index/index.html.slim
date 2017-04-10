@@ -6,7 +6,8 @@ h3
 	.row
 		- for poster in @posters
 			.poster-small.col-sm-6.col-md-3.col-lg-3
-				img[src="#{ get_img_path(poster.t_perf.img) }" alt="Изображение спектакля"]
+				a[href="/performances/#{ poster.t_perf_id }"]
+					img[src="#{ get_img_path(poster.t_perf.img) }" alt="Изображение спектакля"]
 				.date
 					= l(poster.date, format: :full)
 				a[href="/performances/#{ poster.t_perf_id }"]

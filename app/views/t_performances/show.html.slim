@@ -4,6 +4,9 @@ h2 Выступление
 .perf-types
 	== get_settings
 
+#hallModal.modal.fade[role="dialog"]
+	== render 'partials/hall'
+
 h3[style="margin:10px"]
 	= @perf.perf.name
 .perf
@@ -17,6 +20,8 @@ h3[style="margin:10px"]
 							= l(poster.date, format: :full)
 						td
 							= poster.t_perf.t_hall.name
+						td
+							button.btn.btn-primary[style="padding: 3px" data-toggle="modal" data-target="#hallModal"] Купить билет
 
 			img[src="#{ get_img_path(@perf.img) }" alt="Изображение спектакля"]
 

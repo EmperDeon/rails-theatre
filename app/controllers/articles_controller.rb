@@ -1,9 +1,9 @@
 class ArticlesController < ApplicationController
-    def index
+	def index
 
-    end
+	end
 
-    def show
-        @article = Article::find(params[:id])
-    end
+	def show
+		@article = Article::find(params[:id])
+	end
 end
