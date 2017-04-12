@@ -3,7 +3,8 @@ class TPerformancesController < ApplicationController
 		@perfs = TPerformance.by_type(params[:by_type])
 			         .by_name(params[:by_name])
 			         .by_theatre(params[:by_theatre])
-			         .order(id: :desc)
+			         .includes(:perf, :theatre)
+			         .order('performances.name asc')
 	end
 
 	def show

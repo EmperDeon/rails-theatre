@@ -7,6 +7,6 @@ class PostersController < ApplicationController
 			           .by_name(params[:by_name])
 			           .by_theatre(params[:by_theatre])
 			           .order(date: :asc)
-			           .includes(:t_perf)
+			           .includes(t_perf: [{perf: [:p_type]}, :theatre, :t_hall])
 	end
 end

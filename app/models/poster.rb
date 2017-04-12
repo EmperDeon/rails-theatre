@@ -8,7 +8,7 @@ class Poster < ApplicationRecord
 	#
 	# Scopes
 	# TODO: Rewrite without 'then'
-	scope :closest, -> (count) { order(id: :desc).limit(count).includes(:t_perf) if count } # For index
+	scope :closest, -> (count) { order(date: :asc).limit(count).includes(t_perf: [{perf: [:p_type]}, :theatre, :t_hall]) if count } # For index
 
 	scope :by_month, -> (month) { where_month(month) if month }
 	scope :by_day, -> (day) { where_day_of_week(day) if day }
