@@ -19,6 +19,7 @@
   @extend .perf;
 
   img {
+    float: none !important;
     max-width: 320px;
   }
 }

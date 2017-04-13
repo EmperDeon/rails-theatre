@@ -10,17 +10,20 @@ h2
 			h3
 				| Нет представлений по данным критериям
 - else
-	- for perf in @perfs
-		.perf-small.col-sm-4
-			a[href="/performances/#{ perf.id }"]
-				img[src="#{ get_img_path(perf.img, true) }" alt="Изображение спектакля"]
-			br
-			a[href="/performances/#{ perf.id }"]
-				= perf.perf.name
+	.row
+		- @perfs.each_with_index do |perf, i|
+			- if i % 3 == 0 && i != 0
+				== '</div><div class="row">'
+			.perf-small.col-sm-4
+				a[href="/performances/#{ perf.id }"]
+					img[src="#{ get_img_path(perf.img, true) }" alt="Изображение спектакля"]
+				br
+				a[href="/performances/#{ perf.id }"]
+					= perf.perf.name
 
-			br
-			a[href="/theatres/#{ perf.theatre_id }" style="font-size: 10pt"]
-				= perf.theatre.name
-			p
-				== perf.desc_s
-			br[style="clear: both"]
+				br
+				a[href="/theatres/#{ perf.theatre_id }" style="font-size: 10pt"]
+					= perf.theatre.name
+				p
+					== perf.desc_s
+				br[style="clear: both"]
