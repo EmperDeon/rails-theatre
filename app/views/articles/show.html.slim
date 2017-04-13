@@ -2,6 +2,7 @@ h1
 	= @article.name
 hr
 p.article
-	== @article.desc
+	img[src="#{ get_img_path(@article.img) }" alt="Изображение спектакля"]
+	== markdown(@article.desc)
 br[style="clear: both;"]
 
