@@ -38,7 +38,7 @@ h3
 		br[style="clear: both;"]
 		.content
 			- if article.img != 'no_img'
-				a.btn.btn-default[href="/articles/#{ article.id }"]
+				a[href="/articles/#{ article.id }"]
 					img[src="#{ get_img_path(article.img) }" alt="Изображение спектакля"]
 
 			== article.desc_s
