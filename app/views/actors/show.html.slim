@@ -2,5 +2,6 @@ h1
 	= @actor.name
 hr
 p.article
-	== @actor.desc
+	img[src=get_img_path(@actor.img)]
+	== markdown(@actor.desc)
 br[style="clear: both;"]
