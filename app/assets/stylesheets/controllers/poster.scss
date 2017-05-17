@@ -26,6 +26,7 @@
 
 .poster-small {
   margin-bottom: 50px;
+  padding: 0;
 
   a {
     font-size: 12pt;
@@ -38,6 +39,6 @@
   }
 
   img {
-    max-width: 280px;
+    @include img-responsive;
   }
 }

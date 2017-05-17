@@ -3,4 +3,5 @@ class THall < ApplicationRecord
 
 	has_many :t_perfs, class_name: 'TPerformance'
 
+
 end

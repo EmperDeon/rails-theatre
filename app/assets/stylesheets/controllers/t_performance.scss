@@ -1,9 +1,12 @@
+@import 'bootstrap/mixins/image';
+
 .perf {
   padding: 10px 10px 60px 10px;
 
-  img {
-    float: none;
-    max-width: 580px;
+  & > img {
+    @include img-responsive;
+    margin: 0 auto;
+    float: left;
   }
 
   table {
@@ -13,15 +16,24 @@
       }
     }
   }
+
+  .buy_link {
+    float: right;
+    padding: 3px;
+    text-decoration: none;
+    width: 155px;
+  }
 }
 
 .perf-small {
-  @extend .perf;
+  //@extend .perf;
 
-  img {
-    float: none !important;
-    max-width: 320px;
+  & a > img {
+    @include img-responsive;
+    margin: 0 auto;
+    padding: 0 !important;
   }
+
 }
 
 .perf-types {

@@ -1,0 +1,11 @@
+.modal-dialog.modal-md
+	.modal-content
+		.modal-header
+			button.close[data-dismiss="modal"] &times;
+			h3 Успешно забронировано
+		.modal-body
+			a[href="#{ENV['API_SERVER_PATH']}tickets/get_pdf/#{params[:id]}/#{params[:seat]}" class="btn btn-success"] Ссылка на скачивание билета
+
+		.modal-footer
+			button.btn.btn-default[data-dismiss="modal"] Закрыть
+

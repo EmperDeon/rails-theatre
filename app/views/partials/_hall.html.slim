@@ -1,9 +1,30 @@
-.modal-dialog
+.modal-dialog.modal-lg
 	.modal-content
 		.modal-header
 			button.close[data-dismiss="modal"] &times;
-			h3 Покупка билетов
+			h3 Бронирование билетов
 		.modal-body
-			img[src=get_hall_path(params[:id])]
+			#hallError.alert.alert-danger
+				#hallErrorMessage
+
+			a[href=get_hall_path(params[:id]) data-lightbox="image-1"]
+				img[src=get_hall_path(params[:id])]
+
+			.form-group
+				label[for="hallSectors"] Сектор
+				select#hallSectors.form-control
+
+			.form-group
+				label[for="hallRows"] Ряд
+				select#hallRows.form-control
+
+			.form-group
+				label[for="hallSeats"] Место
+				select#hallSeats.form-control
+
 		.modal-footer
+			.pull-left
+				= 'Цена билета: '
+				span#hallPrice
+				= link_to 'Забронировать', "/tickets/buy/#{params[:id]}/", remote: true, class: 'btn btn-primary', id: 'hallBuy'
 			button.btn.btn-default[data-dismiss="modal"] Отмена

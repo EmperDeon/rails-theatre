@@ -5,6 +5,7 @@ class TPerformancesController < ApplicationController
 			         .by_theatre(params[:by_theatre])
 			         .includes(:perf, :theatre)
 			         .order('performances.name asc')
+
 	end
 
 	def show

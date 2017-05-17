@@ -1,0 +1,21 @@
+hall = $('#hallModal');
+hall.html('<%= escape_javascript render partial: 'partials/hall' %>');
+
+hall_seats = <%== @sectors.to_json %>;
+hall_prices = <%== @prices.to_json %>;
+
+e_s = $('#hallSectors');
+
+// Fill Sectors
+e_s.empty();
+
+create_options_for(hall_seats, e_s, function (k, v) {
+    return {value: k, text: v.name}
+});
+
+// Set events and trigger them (fill row and seat selects)
+hall_reinit();
+
+
+// Show modal
+hall.modal();

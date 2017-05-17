@@ -45,6 +45,10 @@ module TPerformanceHelper
 			else
 				r += get_menus(nm, a, %w(type theatre))
 
+				if user_signed_in?
+					/\/\w+\/(\d+)/ =~ path
+					r += '<div class="pull-right"><a href="/favorites/add/' + $1 + '" class="btn btn-primary">Добавить в закладки</a></div>'
+				end
 			end
 
 			r

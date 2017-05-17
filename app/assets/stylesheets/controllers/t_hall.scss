@@ -1,0 +1,15 @@
+@import 'bootstrap/mixins/image';
+
+.t_hall {
+  img {
+    @include img-responsive;
+  }
+
+  #hallBuy {
+    margin-left: 10px;
+  }
+
+  #hallError {
+    display: none;
+  }
+}

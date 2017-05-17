@@ -1,0 +1,15 @@
+<% if @status == 0 %> // If error
+
+$('#hallErrorMessage').text('<%= @error %>');
+$('#hallError').fadeIn();
+
+<% else %>
+// TODO: Add 'Save ticket to profile' dialog
+<% if @status == 1 %> // If not authenticated
+
+<% end %>
+
+// Fill and show ticket
+$('#hallModal').html('<%= escape_javascript render partial: 'partials/ticket' %>');
+
+<% end %>

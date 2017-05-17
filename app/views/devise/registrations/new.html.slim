@@ -1,0 +1,50 @@
+h2 Регистрация
+
+br
+= form_for(:user, as: 'user', url: registration_path('user')) do |f|
+	= devise_error_messages!
+
+	.row
+		.col-sm-6
+			.form-group
+				label[for="login"]
+					span.glyphicon.glyphicon-user
+					= ' Логин'
+				br
+				= f.text_field :login, autofocus: true, class: 'form-control'
+
+			.form-group
+				label[for="password"]
+					span.glyphicon.glyphicon-eye-open
+					= ' Пароль'
+				- if @minimum_password_length
+					em = "  (Минимум #{@minimum_password_length} символов)"
+				br
+				= f.password_field :password, autocomplete: 'off', class: 'form-control'
+
+			.form-group
+				label[for="password_confirmation"]
+					span.glyphicon.glyphicon-eye-open
+					= ' Повторите пароль'
+				br
+				= f.password_field :password_confirmation, autocomplete: 'off', class: 'form-control'
+
+		.col-sm-6
+			.form-group
+				label[for="fio"] = 'ФИО'
+				em = ' (для бронирования)'
+				br
+				= f.text_field :fio, autofocus: true, class: 'form-control'
+
+			.form-group
+				label[for="tel_num"] = 'Телефон'
+				em = ' (для бронирования)'
+				br
+				= f.text_field :tel_num, autofocus: true, class: 'form-control'
+
+
+	button.btn.btn-primary.btn-block[type="submit"]
+		= 'Зарегестрироваться'
+
+br
+p.pull-right == 'Уже есть аккаунт ? ' + (link_to 'Войти', new_user_session_path)

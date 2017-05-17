@@ -1,0 +1,30 @@
+#loginModal.modal.fade[role="dialog"]
+	.modal-sm.modal-dialog
+		.modal-content
+			.modal-header
+				button.close[type="button", data-dismiss="close"] == '&times'
+				h4 = 'Вход'
+			.modal-body
+				= form_for User.new, as: 'user', url: session_path('user') do |f|
+					.form-group
+						label[for="login"]
+							span.glyphicon.glyphicon-user
+							= ' Имя пользователя'
+						= f.text_field :login, autofocus: true, class: 'form-control', placeholder: 'Введите логин'
+					.form-group
+						label[for="password"]
+							span.glyphicon.glyphicon-eye-open
+							= ' Пароль'
+						= f.password_field :password, autocomplete: 'off', class: 'form-control', placeholder: 'Введите пароль'
+					.checkbox
+						label
+							= f.check_box :remember_me
+							= 'Запомнить меня'
+					button.btn.btn-primary.btn-block[type="submit"]
+						= 'Войти'
+
+			.modal-footer
+				button.btn.btn-danger.btn-default.pull-left[type="button", data-dismiss="close"]
+					= 'Отмена'
+				p
+					== 'Нет аккаунта ? ' + (link_to 'Зарегистрироваться', new_user_registration_path)

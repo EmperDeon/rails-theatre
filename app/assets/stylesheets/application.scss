@@ -55,11 +55,19 @@ body > .container {
   }
 
   img {
-    float: left;
-    //width: 100%;
+    //float: left;
     min-width: 10px;
-    //max-width: 420px;
-    height: auto;
     padding: 0 20px 20px 0;
+
+    //width: 100%;
+    //max-width: 420px;
+    //height: auto;
   }
+}
+
+.image-zoom {
+  font-size: 20pt;
+  margin: 5px 5px 0;
+  color: #e8e8e8;
+  text-shadow: -2.5px 0 #3a3a3a, 0 2.5px #3a3a3a, 2.5px 0 #3a3a3a, 0 -2.5px #3a3a3a;
 }

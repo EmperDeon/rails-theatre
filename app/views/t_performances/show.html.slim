@@ -4,14 +4,12 @@ h2 Выступление
 .perf-types
 	== get_settings
 
-#hallModal.modal.fade[role="dialog"]
-	== render 'partials/hall'
-
 h3[style="margin:10px"]
 	= @perf.perf.name
-.perf
-	.row
-		.col-md-9
+
+.row
+	.col-md-9
+		.perf
 			h4 Ближайшие спектакли
 			table.table[style="font-size: 9.5pt"]
 				- for poster in (@perf.posters)
@@ -21,9 +19,11 @@ h3[style="margin:10px"]
 						td
 							= poster.t_perf.t_hall.name
 						td
-							button.btn.btn-primary[style="padding: 3px" data-toggle="modal" data-target="#hallModal"] Купить билет
+							= get_buy_ticket_link(poster)
 
-			img[src="#{ get_img_path(@perf.img) }" alt="Изображение спектакля"]
+			#hallModal.t_hall.modal.fade[role="dialog"]
+
+			img[src=get_img_path(@perf.img, true) alt="Изображение спектакля" data-toggle="lightbox" data-remote=get_img_path(@perf.img)]
 
 			b
 				| Автор:
@@ -33,13 +33,13 @@ h3[style="margin:10px"]
 			p
 				== @perf.desc
 
-		.col-md-3
-			h4
-				| Актеры:
-			table.table[style="font-size: 10pt"]
-				tbody
-					- for actor in @perf.actors
-						tr
-							td
-								a[href="/actors/#{ actor.id }"]
-									= actor.name
+	.col-md-3
+		h4
+			| Актеры:
+		table.table[style="font-size: 10pt"]
+			tbody
+				- for actor in @perf.actors
+					tr
+						td
+							a[href="/actors/#{ actor.id }"]
+								= actor.name

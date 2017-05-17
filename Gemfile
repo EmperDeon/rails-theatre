@@ -64,11 +64,17 @@ gem 'slim-rails'
 # Beautify IRB console
 gem 'hirb'
 
+# Hall rendering
+gem 'gd2-ffij', :git => 'https://github.com/dark-panda/gd2-ffij.git'
+
 # Markdown render
 gem 'redcarpet'
 
 # Safe deletion of models (deleted_at)
 gem 'paranoia', '~> 2.2'
+
+# Authentication
+gem 'devise'
 
 # For heroku
 ruby '2.2.6'
