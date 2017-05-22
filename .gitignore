@@ -48,3 +48,6 @@ bower.json
 .idea/
 .irbrc
 CheatSheet.md
+
+public/halls/*
+!public/halls/.keep

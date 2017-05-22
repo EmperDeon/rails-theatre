@@ -7,12 +7,12 @@ end
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.0.1'
+gem 'rails', '~> 5.1.1'
 
 # Use mysql as the database for Active Record
-gem 'mysql2', '>= 0.3.18', '< 0.5', :group => :production
+gem 'mysql2', '>= 0.3.18', '< 0.5', group: :production
 
-gem 'sqlite3', :group => [:development, :test]
+gem 'sqlite3', group: [:development, :test]
 
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
@@ -65,7 +65,7 @@ gem 'slim-rails'
 gem 'hirb'
 
 # Hall rendering
-gem 'gd2-ffij', :git => 'https://github.com/dark-panda/gd2-ffij.git'
+gem 'gd2-ffij', git: 'https://github.com/dark-panda/gd2-ffij.git'
 
 # Markdown render
 gem 'redcarpet'
@@ -77,4 +77,4 @@ gem 'paranoia', '~> 2.2'
 gem 'devise'
 
 # For heroku
-ruby '2.2.6'
+ruby '2.4.0'

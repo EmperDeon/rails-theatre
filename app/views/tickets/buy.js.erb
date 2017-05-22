@@ -1,3 +1,4 @@
+
 <% if @status == 0 %> // If error
 
 $('#hallErrorMessage').text('<%= @error %>');
@@ -13,3 +14,7 @@ $('#hallError').fadeIn();
 $('#hallModal').html('<%= escape_javascript render partial: 'partials/ticket' %>');
 
 <% end %>
+
+$('#hallModal').on('hidden.bs.modal', function () {
+    location.reload(true);
+})

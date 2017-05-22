@@ -16,6 +16,9 @@ create_options_for(hall_seats, e_s, function (k, v) {
 // Set events and trigger them (fill row and seat selects)
 hall_reinit();
 
+$('#hallModal').on('hidden.bs.modal', function () {
+    location.reload(true);
+})
 
 // Show modal
 hall.modal();

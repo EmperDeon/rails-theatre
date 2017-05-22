@@ -1,21 +1,22 @@
 default: &default
-  adapter: sqlite3
   pool: 5
+  adapter: mysql2
+  encoding: utf8
+  host: localhost
+  username: root
+  password: leYeThAn
 
-#
-# Dev ENV
-#
+
 development:
   <<: *default
-  database: ../../Theatre_Run/db.sqlite3
+  database: Theatre_development
 
 test:
   <<: *default
-  database: ../../Theatre_Run/db_test.sqlite3
+  database: Theatre_tes
 
-#
-# Prod ENV
-#
 production:
+  adapter: mysql2
   pool: 5
+  encoding: utf8
   url: <%= ENV['DATABASE_URL'] %>

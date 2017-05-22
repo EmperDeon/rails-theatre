@@ -1,39 +1,23 @@
 class ApplicationRecord < ActiveRecord::Base
-	self.abstract_class = true
+  self.abstract_class = true
 
 
-	def self.where_time(time)
-		q = if Rails.env.production?
-			    "DATE_FORMAT(date, '%H:%i')"
-			else
-				"strftime('%H:%M', date)"
-		    end
-		q += ' = ?'
+  def self.where_time(time)
+    q = "DATE_FORMAT(date, '%H:%i') = ?"
 
-		where(q, UtilsHelper.get_hash('time')[time.to_i])
-	end
+    where(q, UtilsHelper.get_hash('time')[time.to_i])
+  end
 
-	def self.where_day_of_week (day)
-		q = if Rails.env.production?
-			    'DAYOFWEEK(date)'
-			else
-				day = day.to_i - 1
-				"strftime('%w', date)"
-		    end
-		q += ' = ?'
+  def self.where_day_of_week (day)
+    q = 'DAYOFWEEK(date) = ?'
 
-		where(q, day.to_s)
-	end
+    where(q, day.to_s)
+  end
 
-	def self.where_month (month)
-		q = if Rails.env.production?
-			    'MONTH(date)'
-			else
-				"strftime('%m', date)"
-		    end
-		q += ' = ?'
+  def self.where_month (month)
+    q = 'MONTH(date) = ?'
 
-		where(q, month)
-	end
+    where(q, month)
+  end
 
 end
