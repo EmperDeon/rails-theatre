@@ -91,7 +91,7 @@ module UtilsHelper
   def self.get_fields(type)
     sql = ''
 
-    if %w(performances theatres p_types u_perms).include? type # Is easy to use ?
+    if %w[performances theatres p_types u_perms].include? type # Is easy to use ?
       sql += 'id, name'
 
     elsif type == 'users' # For users

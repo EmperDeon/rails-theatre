@@ -46,8 +46,6 @@ bower.json
 .byebug_history
 
 .idea/
-.irbrc
-CheatSheet.md
 
 public/halls/*
 !public/halls/.keep

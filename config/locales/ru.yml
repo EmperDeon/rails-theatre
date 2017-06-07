@@ -143,6 +143,7 @@ ru-RU:
           attributes:
             password:
               too_short: 'Слишком короткий пароль'
+              blank: 'Пароль не может быть пустым'
             password_confirmation:
               confirmation: 'Пароли не одинаковые'
             current_password:

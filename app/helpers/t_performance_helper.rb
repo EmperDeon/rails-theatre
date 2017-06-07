@@ -21,8 +21,8 @@ module TPerformanceHelper
         r += get_menus(nm, a, %w(type month))
 
         # Add 'More' and 'Clear' buttons
-        r += '<a href="#" class="btn btn-primary" data-toggle="collapse" '
-        r += '   data-target="#perf-types" style="margin-right:10px">' + t(:m_more) + '</a>'
+        r += '<button class="btn btn-primary" data-toggle="collapse" '
+        r += '   data-target="#perf-types" style="margin-right:10px">' + t(:m_more) + '</button>'
         r += cl + '</div>'
 
 
